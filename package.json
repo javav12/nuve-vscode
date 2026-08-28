@@ -1,0 +1,25 @@
+{
+  "name": "nuve-vscode",
+  "displayName": "nuve-vscode",
+  "description": "nuve için renklendirici",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.134.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "nuve",
+      "aliases": ["nuve", "nuve"],
+      "extensions": [".nv"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "nuve",
+      "scopeName": "source.nuve",
+      "path": "./syntaxes/nuve.tmLanguage.json"
+    }]
+  }
+}

@@ -1,0 +1,166 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "nuve",
+	"scopeName": "source.nuve",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#function-declarations"
+		},
+		{
+			"include": "#function-calls"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#punctuation"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign.nuve",
+					"match": "#.*$"
+				},
+				{
+					"name": "comment.line.double-slash.nuve",
+					"match": "//.*$"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.nuve",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.nuve",
+					"match": "\\\\."
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.nuve",
+					"match": "\\b(eğer|eger|if|değilse|degilse|else|iken|while|için|icin|for|içinde|icinde|in|kır|kir|break|sürdür|surdur|continue|döndür|dondur|return)\\b"
+				},
+				{
+					"name": "keyword.other.nuve",
+					"match": "\\b(değişken|degisken|let|fonksiyon|function|kullan|import)\\b"
+				},
+				{
+					"name": "keyword.operator.logical.nuve",
+					"match": "\\b(ve|and|veya|or|değil|degil|not)\\b"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.language.boolean.true.nuve",
+					"match": "\\b(doğru|dogru|true)\\b"
+				},
+				{
+					"name": "constant.language.boolean.false.nuve",
+					"match": "\\b(yanlış|yanlis|false)\\b"
+				},
+				{
+					"name": "constant.language.null.nuve",
+					"match": "\\b(yok|null)\\b"
+				}
+			]
+		},
+		"function-declarations": {
+			"patterns": [
+				{
+					"match": "\\b(fonksiyon|function)\\s+([a-zA-Z_çğıöşüÇĞİÖŞÜ][a-zA-Z0-9_çğıöşüÇĞİÖŞÜ]*)",
+					"captures": {
+						"1": {
+							"name": "keyword.other.nuve"
+						},
+						"2": {
+							"name": "entity.name.function.nuve"
+						}
+					}
+				}
+			]
+		},
+		"function-calls": {
+			"patterns": [
+				{
+					"match": "\\b([a-zA-Z_çğıöşüÇĞİÖŞÜ][a-zA-Z0-9_çğıöşüÇĞİÖŞÜ]*)(?=\\s*\\()",
+					"name": "support.function.nuve"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.hex.nuve",
+					"match": "\\b0[xX][0-9a-fA-F]+\\b"
+				},
+				{
+					"name": "constant.numeric.binary.nuve",
+					"match": "\\b0[bB][01]+\\b"
+				},
+				{
+					"name": "constant.numeric.decimal.nuve",
+					"match": "\\b\\d+(\\.\\d+)?\\b"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.comparison.nuve",
+					"match": "(==|!=|<=|>=|<|>)"
+				},
+				{
+					"name": "keyword.operator.assignment.nuve",
+					"match": "="
+				},
+				{
+					"name": "keyword.operator.arithmetic.nuve",
+					"match": "(\\+|-|\\*|/|%)"
+				},
+				{
+					"name": "keyword.operator.bitwise.nuve",
+					"match": "(&|\\||\\^|~|<<|>>)"
+				},
+				{
+					"name": "keyword.operator.arrow.nuve",
+					"match": "->"
+				}
+			]
+		},
+		"punctuation": {
+			"patterns": [
+				{
+					"name": "punctuation.bracket.nuve",
+					"match": "[\\{\\}\\[\\]\\(\\)]"
+				},
+				{
+					"name": "punctuation.separator.nuve",
+					"match": "[,;:]"
+				}
+			]
+		}
+	}
+}
